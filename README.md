@@ -6,7 +6,7 @@ A read-only Google ADK agent demo for reviewing synthetic engineering applicatio
 
 This project was built for the Kaggle / Google AI Agents capstone. It demonstrates how an agent can combine evidence from multiple business records, apply safety guardrails, and produce an explainable risk review without modifying source data.
 
-**Demo video:** https://youtu.be/rEs4bYiMa_0
+**Demo video:** https://www.youtube.com/watch?v=KePgFrVUFw0
 
 **GitHub:** https://github.com/mikenick456/engineering-risk-review-agent
 
@@ -349,7 +349,7 @@ For final Kaggle submission, this repository still needs external submission ass
 
 - public GitHub repository: https://github.com/mikenick456/engineering-risk-review-agent
 - Kaggle Writeup submission based on `WRITEUP.md`
-- public YouTube demo video: https://youtu.be/rEs4bYiMa_0
+- public YouTube demo video: https://www.youtube.com/watch?v=KePgFrVUFw0
 - Media Gallery cover image
 - selected track: recommended **Agents for Business**
 

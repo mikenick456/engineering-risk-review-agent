@@ -76,7 +76,7 @@ The `specs/` directory documents the problem, schema, risk rules, and golden cas
 
 ## Demo Plan
 
-**YouTube Demo:** https://youtu.be/rEs4bYiMa_0
+**YouTube Demo:** https://www.youtube.com/watch?v=KePgFrVUFw0
 
 The demo shows both the local deterministic review and the ADK runtime.
 
@@ -100,8 +100,10 @@ The demo shows both the local deterministic review and the ADK runtime.
    ```powershell
    $env:GOOGLE_GENAI_USE_VERTEXAI="FALSE"
    $env:GOOGLE_API_KEY="YOUR_GEMINI_API_KEY"
-   adk run app "Review EG-2026-0001" --in_memory
+   adk run app
    ```
+
+   Then enter: `Review EG-2026-0001`
 
 5. Show `policies.yaml` and explain that the agent cannot approve, update ERP data, or create vouchers.
 
@@ -129,5 +131,4 @@ Current limitations:
 ## Links
 
 - GitHub Repo: https://github.com/mikenick456/engineering-risk-review-agent
-- YouTube Demo: https://youtu.be/rEs4bYiMa_0
-- Kaggle Writeup: TODO
+- YouTube Demo: https://www.youtube.com/watch?v=KePgFrVUFw0
