@@ -1,0 +1,26 @@
+project_thresholds:
+  NTD: 500000
+  RMB: 100000
+  MYR: 62500
+  USD: 15000
+
+asset_thresholds:
+  NTD: 80000
+  RMB: 20000
+  MYR: 8000
+
+large_maintenance_kinds:
+  - 一般維護
+  - 一般工作需求
+
+risk_rules:
+  allocation:
+    total_share_rate_must_equal: 100
+    severity_when_failed: high
+
+  overdue_receipt:
+    overdue_days_threshold: 15
+    severity_when_failed: medium
+
+  budget_overrun:
+    severity_when_failed: high

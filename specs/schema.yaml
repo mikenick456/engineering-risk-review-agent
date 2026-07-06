@@ -1,0 +1,27 @@
+tables:
+  applications:
+    key: ApplyNo
+    fields:
+      ApplyNo: string
+      ProjectName: string
+      ApplyDept: string
+      Budget: number
+      Currency: string
+      EmsKind: string
+      Status: string
+      IsClose: boolean
+
+  allocations:
+    key: [ApplyNo, EmsNo]
+    fields:
+      ApplyNo: string
+      EmsNo: string
+      ShareRate: number
+
+  budgets:
+    key: EmsNo
+    fields:
+      EmsNo: string
+      BudgetLimit: number
+      UsedAmount: number
+      Currency: string

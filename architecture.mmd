@@ -1,0 +1,33 @@
+flowchart TD
+    User["Human Reviewer / Kaggle Demo User"] --> Query["Review request with ApplyNo"]
+    Query --> ADK["Google ADK root_agent\nengineering_risk_review_agent"]
+
+    ADK --> Guardrails["Read-only instructions\nNo approval / No ERP update / No voucher creation"]
+    ADK --> Tools["ADK FunctionTools"]
+
+    Tools --> T1["adk_get_application"]
+    Tools --> T2["adk_check_allocation"]
+    Tools --> T3["adk_check_budget_risk"]
+    Tools --> T4["adk_check_receipt_status"]
+    Tools --> T5["adk_summarize_financial_status"]
+
+    T1 --> Applications[("data/applications.csv")]
+    T2 --> Allocations[("data/allocations.csv")]
+    T3 --> Budgets[("data/budgets.csv")]
+    T4 --> Receipts[("data/receipts.csv")]
+    T5 --> Vouchers[("data/vouchers.csv")]
+
+    Applications --> Evidence["Evidence bundle"]
+    Allocations --> Evidence
+    Budgets --> Evidence
+    Receipts --> Evidence
+    Vouchers --> Evidence
+
+    Guardrails --> Report["Risk Review Report"]
+    Evidence --> Report
+
+    Report --> Output["Risk level\nFindings\nEvidence\nRecommended next action\nSafety note"]
+
+    Policies["policies.yaml\nRead-only permission tier"] -. documents .-> Guardrails
+    Specs["specs/*.yaml\nSchema, rules, golden cases"] -. validates .-> Tools
+    Tests["tests/\nUnit tests + ADK wiring tests"] -. verifies .-> Report

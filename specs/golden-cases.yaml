@@ -1,0 +1,27 @@
+cases:
+  - id: normal-application
+    input:
+      apply_no: EG-2026-0001
+    expected:
+      risk_level: low
+      blocked: false
+      findings: []
+
+  - id: allocation-not-100
+    input:
+      apply_no: EG-2026-0002
+    expected:
+      risk_level: high
+      blocked: true
+      findings:
+        - allocation_total_not_100
+
+  - id: overdue-receipt
+    input:
+      apply_no: EG-2026-0002
+    expected:
+      risk_level: high
+      blocked: true
+      findings:
+        - allocation_total_not_100
+        - overdue_receipt

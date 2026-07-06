@@ -1,0 +1,14 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+*.pyo
+.adk/
+.venv/
+venv/
+*.mp4
+*.mov
+*.avi
+.DS_Store
+Thumbs.db
+*.log

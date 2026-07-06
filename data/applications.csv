@@ -1,0 +1,4 @@
+ApplyNo,ProjectName,ApplyDept,Budget,Currency,EmsKind,Status,IsClose
+EG-2026-0001,Factory HVAC Upgrade,ENG,450000,NTD,一般維護,open,false
+EG-2026-0002,Fire Pipe Renewal,ENG,900000,NTD,增設改善,open,false
+EG-2026-0003,Parking Lot Repair,MAI,120000,NTD,一般工作需求,open,false

@@ -1,0 +1,21 @@
+permission_tier: read-only
+
+allowed_tools:
+  - get_application
+  - check_allocation
+  - check_budget_risk
+  - check_receipt_status
+  - summarize_financial_status
+
+forbidden_actions:
+  - approve_application
+  - update_erp
+  - create_voucher
+  - delete_record
+  - connect_production_database
+
+data_safety:
+  synthetic_data_only: true
+  forbid_real_company_names: true
+  forbid_real_employee_names: true
+  forbid_credentials: true

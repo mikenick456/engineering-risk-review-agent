@@ -1,0 +1,4 @@
+ApplyNo,IssueNo,VendorName,DueDate,RecvDate,RecvAmount,IsPenalty
+EG-2026-0001,IS-001,Demo Vendor A,2026-07-05,2026-07-01,100000,false
+EG-2026-0002,IS-002,Demo Vendor B,2026-07-01,2026-07-20,500000,true
+EG-2026-0003,IS-003,Demo Vendor C,2026-07-10,2026-07-10,300000,false

@@ -1,0 +1,59 @@
+%%{init: {'theme': 'default', 'flowchart': {'curve': 'basis', 'padding': 14}, 'themeVariables': {'fontSize': '14px'}}}%%
+flowchart LR
+    subgraph ColA["Reviewer & Agent"]
+        direction TB
+        User["Human Reviewer / Kaggle Demo User"]
+        Query["Review request with ApplyNo"]
+        ADK["Google ADK root_agent\nengineering_risk_review_agent"]
+        Guardrails["Read-only instructions\nNo approval / No ERP update / No voucher creation"]
+        Policies["policies.yaml\nRead-only permission tier"]
+        Specs["specs/*.yaml\nSchema, rules, golden cases"]
+        User --> Query --> ADK --> Guardrails
+        Policies -. documents .-> Guardrails
+    end
+
+    subgraph ColB["Tools + Data"]
+        direction TB
+        Tools["ADK FunctionTools"]
+        T1["adk_get_application"]
+        Applications[("applications.csv")]
+        T2["adk_check_allocation"]
+        Allocations[("allocations.csv")]
+        T3["adk_check_budget_risk"]
+        Budgets[("budgets.csv")]
+        T4["adk_check_receipt_status"]
+        Receipts[("receipts.csv")]
+        T5["adk_summarize_financial_status"]
+        Vouchers[("vouchers.csv")]
+
+        Tools --> T1 --> Applications
+        Tools --> T2 --> Allocations
+        Tools --> T3 --> Budgets
+        Tools --> T4 --> Receipts
+        Tools --> T5 --> Vouchers
+
+        Applications ~~~ T2
+        Allocations ~~~ T3
+        Budgets ~~~ T4
+        Receipts ~~~ T5
+
+        Specs -. validates .-> Tools
+    end
+
+    subgraph ColC["Risk Review Output"]
+        direction TB
+        Evidence["Evidence bundle"]
+        Report["Risk Review Report"]
+        Output["Risk level / Findings / Evidence\nRecommended next action / Safety note"]
+        Tests["tests/\nUnit tests + ADK wiring tests"]
+        Evidence --> Report --> Output
+        Tests -. verifies .-> Report
+    end
+
+    Guardrails --> Tools
+    Guardrails --> Report
+    Applications --> Evidence
+    Allocations --> Evidence
+    Budgets --> Evidence
+    Receipts --> Evidence
+    Vouchers --> Evidence
